@@ -1,6 +1,6 @@
 # Smart Habit Reminder System (Prototype)
 
-A simple browser-based reminder prototype built with **HTML, CSS, and JavaScript**.
+A simple browser-based reminder prototype built using codex of CHATGPT using techstack - **HTML, CSS, and JavaScript**.
 
 ## Proposed Website Structure
 
