@@ -3,173 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HabitPulse — Smart Habit Reminder System</title>
-    <meta
-      name="description"
-      content="HabitPulse is a premium visual prototype landing page for a smart habit reminder system."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <title>Smart Habit Reminder System</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="loader" id="loader">
-      <div class="loader__logo">HabitPulse <span></span></div>
-    </div>
-
-    <div class="scroll-progress" id="scrollProgress"></div>
-    <div class="cursor" id="cursor"></div>
-
-    <header class="nav" id="navbar">
-      <a class="brand" href="#hero">HabitPulse <span class="pulse-dot"></span></a>
-      <nav class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#how">How It Works</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#pricing">Pricing</a>
-      </nav>
-      <button class="btn gradient-outline">Get Started</button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="badge">Design Thinking Prototype</p>
+        <h1>Smart Habit Reminder System</h1>
+        <p class="hero__subtitle">
+          A simple tool to reduce forgetfulness and mental overload by reminding you
+          about important daily tasks.
+        </p>
+        <div class="hero__actions">
+          <a href="#add-reminder" class="btn btn--primary">Start Using the System</a>
+          <a href="#dashboard" class="btn btn--ghost">View Dashboard</a>
+        </div>
+      </div>
     </header>
 
-    <aside class="mobile-menu" id="mobileMenu">
-      <a href="#features">Features</a>
-      <a href="#how">How It Works</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#pricing">Pricing</a>
-      <button class="btn gradient-fill">Get Started</button>
-    </aside>
+    <main class="layout">
+      <section class="card" id="problem">
+        <h2>Why this matters</h2>
+        <p>
+          People often forget recurring tasks like taking medicines, drinking water,
+          or carrying essentials. This prototype helps users track those tasks in one
+          place and receive reminders at the right time.
+        </p>
+      </section>
 
-    <main>
-      <section class="hero section" id="hero">
-        <div class="hero-glow"></div>
-        <div class="hero-grid"></div>
-        <div class="hero-content">
-          <p class="beta-badge">✨ Now in Beta — Try Free</p>
-          <h1 class="gradient-text">Never Forget What Matters.</h1>
-          <p>
-            HabitPulse helps you build daily habits, remember medicines, stay hydrated,
-            and never leave your keys behind.
-          </p>
-          <div class="hero-cta">
-            <button class="btn gradient-fill">Start Free</button>
-            <button class="btn gradient-outline">▶ Watch Demo</button>
+      <section class="card" id="add-reminder">
+        <h2>Add Reminder</h2>
+        <form id="reminder-form" class="form">
+          <label>
+            Task name
+            <input type="text" id="taskName" placeholder="e.g., Drink water" required />
+          </label>
+
+          <label>
+            Reminder time
+            <input type="datetime-local" id="reminderTime" required />
+          </label>
+
+          <label>
+            Category (optional)
+            <select id="category">
+              <option value="">Select a category</option>
+              <option value="Health">Health</option>
+              <option value="Routine">Routine</option>
+              <option value="Items">Items</option>
+              <option value="Study">Study</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <button class="btn btn--primary" type="submit">Add Reminder</button>
+        </form>
+      </section>
+
+      <section class="card" id="dashboard">
+        <div class="dashboard-head">
+          <h2>Dashboard</h2>
+          <button id="clearCompleted" class="btn btn--ghost" type="button">
+            Clear Completed
+          </button>
+        </div>
+
+        <div class="dashboard-grid">
+          <div>
+            <h3>Active Reminders</h3>
+            <ul id="activeList" class="list"></ul>
           </div>
-          <div class="trust-row">
-            <div class="avatars">
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <p>Trusted by 10,000+ users ★★★★★</p>
+
+          <div>
+            <h3>Completed Tasks</h3>
+            <ul id="completedList" class="list"></ul>
           </div>
-        </div>
-      </section>
-
-      <section class="ticker-wrap section">
-        <div class="fade-edge left"></div>
-        <div class="fade-edge right"></div>
-        <div class="ticker">
-          <div>TechDaily</div><div>ProductHunt</div><div>DesignWeekly</div><div>Forbes</div><div>Wired</div><div>FastCo</div>
-          <div>TechDaily</div><div>ProductHunt</div><div>DesignWeekly</div><div>Forbes</div><div>Wired</div><div>FastCo</div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="features">
-        <h2>Everything you need to stay on track</h2>
-        <p class="subtitle">Powerful features wrapped in simplicity</p>
-        <div class="bento">
-          <article class="card reveal"><h3>⏰ Smart Reminders</h3><p>Set it once, never forget again with beautifully timed nudges.</p></article>
-          <article class="card reveal"><h3>💊 Medicine Tracker</h3><p>Health reminders that save lives and keep routines safe.</p></article>
-          <article class="card reveal"><h3>💧 Hydration Alerts</h3><p>Stay hydrated throughout the day with gentle notifications.</p></article>
-          <article class="card reveal"><h3>🔑 Item Checklist</h3><p>Keys, wallet, phone — always checked before you leave.</p></article>
-          <article class="card reveal"><h3>📊 Habit Streaks</h3><p>Track your consistency and celebrate long, healthy streaks.</p></article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="how">
-        <h2>Simple as 1-2-3</h2>
-        <div class="steps-line"></div>
-        <div class="steps">
-          <article class="step reveal"><span>01</span><h3>Add Your Habits</h3><p>Type your daily task and set reminder time.</p></article>
-          <article class="step reveal"><span>02</span><h3>Get Notified</h3><p>Receive gentle nudges exactly when you need them.</p></article>
-          <article class="step reveal"><span>03</span><h3>Build Streaks</h3><p>Stay consistent and watch your habits grow.</p></article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="preview">
-        <h2>See HabitPulse in action</h2>
-        <div class="mockup-wrap">
-          <div class="mockup-glow"></div>
-          <div class="mockup">
-            <aside>
-              <div>◉</div><div>⌂</div><div>☰</div><div>⚙</div>
-            </aside>
-            <div class="mock-main">
-              <div class="mock-top">
-                <h3>Today’s reminders</h3>
-                <div class="ring">6/8</div>
-              </div>
-              <ul>
-                <li><input type="checkbox" checked /> Take medicine</li>
-                <li><input type="checkbox" checked /> Drink water</li>
-                <li><input type="checkbox" /> Carry keys & wallet</li>
-                <li><input type="checkbox" /> Evening walk</li>
-              </ul>
-              <div class="toast">Time to drink water! 💧</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="testimonials">
-        <h2>Loved by thousands</h2>
-        <div class="testimonials">
-          <article class="card reveal"><h4>Sarah K. — Student</h4><p>“HabitPulse finally made me consistent with meds and study breaks.”</p><small>★★★★★</small></article>
-          <article class="card reveal"><h4>Dr. Patel — Doctor</h4><p>“Elegant reminder flow with zero mental clutter.”</p><small>★★★★★</small></article>
-          <article class="card reveal"><h4>Arjun M. — Founder</h4><p>“The interface feels premium and frictionless.”</p><small>★★★★★</small></article>
-          <article class="card reveal"><h4>Leah T. — Designer</h4><p>“Beautiful micro-interactions. It feels alive.”</p><small>★★★★★</small></article>
-          <article class="card reveal"><h4>Noah P. — Athlete</h4><p>“Hydration reminders improved my daily routine.”</p><small>★★★★★</small></article>
-          <article class="card reveal"><h4>Mia R. — Teacher</h4><p>“Perfect for remembering essentials before leaving home.”</p><small>★★★★★</small></article>
-        </div>
-      </section>
-
-      <section class="stats section reveal" id="stats">
-        <div><h3 data-count="10000">0</h3><p>Active Users</p></div>
-        <div><h3 data-count="50000">0</h3><p>Reminders Set</p></div>
-        <div><h3 data-count="98">0</h3><p>Task Completion Rate</p></div>
-        <div><h3 data-count="4.9">0</h3><p>User Rating</p></div>
-      </section>
-
-      <section class="section reveal" id="pricing">
-        <h2>Start free, upgrade when ready</h2>
-        <div class="toggle-row">
-          <span>Monthly</span>
-          <label class="switch"><input type="checkbox" id="billingToggle" /><span></span></label>
-          <span>Yearly <em>Save 20%</em></span>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card reveal"><h3>FREE</h3><strong data-month="0" data-year="0">$0/mo</strong><p>For getting started</p><ul><li>✓ 3 reminders</li><li>✓ Basic alerts</li><li>✓ Weekly summary</li></ul><button class="btn gradient-outline">Choose Plan</button></article>
-          <article class="price-card popular reveal"><span class="badge">Most Popular</span><h3>PRO</h3><strong data-month="9" data-year="7">$9/mo</strong><p>For serious habit builders</p><ul><li>✓ Unlimited reminders</li><li>✓ Smart snooze</li><li>✓ Habit analytics</li></ul><button class="btn gradient-fill">Choose Plan</button></article>
-          <article class="price-card reveal"><h3>TEAM</h3><strong data-month="19" data-year="15">$19/mo</strong><p>For families & groups</p><ul><li>✓ Shared reminders</li><li>✓ Team dashboard</li><li>✓ Priority support</li></ul><button class="btn gradient-outline">Choose Plan</button></article>
-        </div>
-      </section>
-
-      <section class="cta section reveal" id="cta">
-        <h2>Your habits deserve a system.</h2>
-        <p>Join thousands building better routines with HabitPulse</p>
-        <div class="cta-row">
-          <input type="email" placeholder="Enter your email" />
-          <button class="btn gradient-fill">Get Started — It's Free</button>
         </div>
       </section>
     </main>
@@ -188,5 +97,17 @@
     <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
     <script src="script.js" defer></script>
+    <div id="notificationModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__content">
+        <h3>Reminder</h3>
+        <p id="notificationText"></p>
+        <div class="modal__actions">
+          <button id="doneBtn" class="btn btn--primary" type="button">Mark Done</button>
+          <button id="snoozeBtn" class="btn btn--ghost" type="button">Snooze 10 min</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
