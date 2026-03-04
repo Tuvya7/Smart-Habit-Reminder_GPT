@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Habit Reminder System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="badge">Design Thinking Prototype</p>
+        <h1>Smart Habit Reminder System</h1>
+        <p class="hero__subtitle">
+          A simple tool to reduce forgetfulness and mental overload by reminding you
+          about important daily tasks.
+        </p>
+        <div class="hero__actions">
+          <a href="#add-reminder" class="btn btn--primary">Start Using the System</a>
+          <a href="#dashboard" class="btn btn--ghost">View Dashboard</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="card" id="problem">
+        <h2>Why this matters</h2>
+        <p>
+          People often forget recurring tasks like taking medicines, drinking water,
+          or carrying essentials. This prototype helps users track those tasks in one
+          place and receive reminders at the right time.
+        </p>
+      </section>
+
+      <section class="card" id="add-reminder">
+        <h2>Add Reminder</h2>
+        <form id="reminder-form" class="form">
+          <label>
+            Task name
+            <input type="text" id="taskName" placeholder="e.g., Drink water" required />
+          </label>
+
+          <label>
+            Reminder time
+            <input type="datetime-local" id="reminderTime" required />
+          </label>
+
+          <label>
+            Category (optional)
+            <select id="category">
+              <option value="">Select a category</option>
+              <option value="Health">Health</option>
+              <option value="Routine">Routine</option>
+              <option value="Items">Items</option>
+              <option value="Study">Study</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <button class="btn btn--primary" type="submit">Add Reminder</button>
+        </form>
+      </section>
+
+      <section class="card" id="dashboard">
+        <div class="dashboard-head">
+          <h2>Dashboard</h2>
+          <button id="clearCompleted" class="btn btn--ghost" type="button">
+            Clear Completed
+          </button>
+        </div>
+
+        <div class="dashboard-grid">
+          <div>
+            <h3>Active Reminders</h3>
+            <ul id="activeList" class="list"></ul>
+          </div>
+
+          <div>
+            <h3>Completed Tasks</h3>
+            <ul id="completedList" class="list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="notificationModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal__content">
+        <h3>Reminder</h3>
+        <p id="notificationText"></p>
+        <div class="modal__actions">
+          <button id="doneBtn" class="btn btn--primary" type="button">Mark Done</button>
+          <button id="snoozeBtn" class="btn btn--ghost" type="button">Snooze 10 min</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
